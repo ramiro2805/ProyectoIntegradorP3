@@ -1,18 +1,16 @@
-import React from 'react';
+import React, {Component} from 'react';
 
 class detallePelicula extends Component {
     constructor(props) {
         super(props);
         this.state = {data:null}
     }
-    apiCall(url,consecuencia) {
-        fetch(url)
-        .then(res => res.json())
-        .then(data => consecuencia)
-        .catch(e => console.log(e))
-    }
+
     componentDidMount (){
-        this.apiCall()
+        fetch()
+        .then(res => res.json())
+        .then(data => console.log(data))
+        .catch(e => console.log(e))
     }
     render() {
         return (
@@ -24,4 +22,4 @@ class detallePelicula extends Component {
 
 }
 
-export default deatllePelicula
+export default detallePelicula

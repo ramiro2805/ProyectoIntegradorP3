@@ -6,13 +6,13 @@ import detallePelicula from '../../Components/detallePelicula/detallePelicula';
 class ScreenDetallePelicula extends Component {
     constructor (props){
         super(props);
-        this.state = {data:null}
+        this.state = {/* data:null */}
     }
     
     render(){
         return(
             <div>
-                <detallePelicula id={this.props.match.params.id}/>
+                <detallePelicula id= {this.props.match.params.id}/>
             </div>
         )
     }

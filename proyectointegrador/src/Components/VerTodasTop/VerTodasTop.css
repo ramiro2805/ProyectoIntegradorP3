@@ -1,0 +1,8 @@
+.PadreVerTodas{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    background-color:darkslategrey;
+    padding: 20px 20px 10px 20px;
+}

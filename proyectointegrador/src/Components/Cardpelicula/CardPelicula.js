@@ -1,5 +1,6 @@
 import React, {Component}from 'react';
 import { Link } from "react-router-dom"
+import "./CardPelicula.css"
 
 class CardPelicula extends Component {
     constructor(props) {
@@ -16,8 +17,10 @@ class CardPelicula extends Component {
     }
         render() {
         return(
+            // `https://image.tmdb.org/t/p/w500/${this.props.data.poster_path}/images` esto es para el poster pero es muy grande , me lo sugirio chat gpt y funciono
+            // `https://api.themoviedb.org/3/movie/${this.props.data.id}/images`  este es el que dice la api pero no funciona
             <article className='card-pelicula'>
-                <img src={this.props.data.poster_path} />
+                <img className="cardimg"src={`https://image.tmdb.org/t/p/w500/${this.props.data.poster_path}/images`} alt={this.props.data.title}></img>
             <h2>{this.props.data.title}</h2>
             {this.state.VerMas === 0?
             <button onClick= {() => this.VerDescripcion()}> Ver descripcion</button>:

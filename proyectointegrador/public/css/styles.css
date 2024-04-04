@@ -1,0 +1,9 @@
+body {
+    background-color:darkcyan;
+}
+.PadreSecciones {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}

@@ -1,0 +1,23 @@
+.card-pelicula {
+    max-height: 1000px;
+    flex: 0 1 calc(45% - 0px); /* Todas las tarjetas de peliculas ocuparán el mismo espacio disponible */
+    margin: 10px; /* Espacio entre las tarjetas */
+    padding: 10px; /* Espacio interno de las tarjetas */
+    border: 1px solid #ccc; /* Borde para visualización */
+    text-align: center;
+    max-width: 500px;
+    justify-content: space-around;
+    color: aliceblue;
+    background-color: black;
+}
+.cardimg {
+    width: 100%; /* Ajusta el tamaño de la imagen al ancho de la tarjeta */
+    height: auto; /* Permite que la altura de la imagen se ajuste automáticamente */
+    max-height:500px;
+    max-width: fit-content;
+}
+.boton {
+    text-emphasis: none;
+    text-decoration: none;
+    
+}

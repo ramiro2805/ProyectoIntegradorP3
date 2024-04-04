@@ -18,6 +18,7 @@ class UpComingMovies extends Component {
         return (
             <div className="UpComingMovies">
                 {console.log(this.state.peliculas)}
+                <h1>Proximos estrenos:</h1>
                 {
                     top5.map(( elm, idx) => <CardPelicula  data= {elm}  key={idx + elm.title}/>)
                 

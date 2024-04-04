@@ -29,7 +29,7 @@ class detallePelicula extends Component {
                 
                 {console.log(data)}
                 <div className="DetallePoster">
-                <img src={data.poster_path}/>
+                <img src={`https://image.tmdb.org/t/p/w500/${data.poster_path}/images`}/>
                 <p>{data.title}</p>
                 </div>
 

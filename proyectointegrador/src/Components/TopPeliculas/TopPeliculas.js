@@ -17,6 +17,7 @@ class TopPeliculas extends Component {
         let top5 = this.state.peliculas.slice(0,5)
         return (
             <div>
+                <h1>Top Rating Peliculas:</h1>
                 {
                     top5.map(( elm, idx) => <CardPelicula  data= {elm}  key={idx + elm.title}/>)
                 

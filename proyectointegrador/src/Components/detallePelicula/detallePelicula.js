@@ -25,10 +25,24 @@ class detallePelicula extends Component {
         }
 
         return (
-            <div>
-                <p>Hola</p>
+            <div className="PadreDetallePelicula">
+                
                 {console.log(data)}
-                <p>{data.original_title}</p>
+                <div className="DetallePoster">
+                <img src={data.poster_path}/>
+                <p>{data.title}</p>
+                </div>
+
+
+                <div className="DetalleInfo">
+                <p>Rating: {data.popularity}</p>
+                <p>Estreno: {data.release_date}</p>
+                <p>Duracion: {data.runtime}</p>
+                <p>Sinopsis: {data.overview}</p>
+                <div className="Generos">Genreos: {data.genres.map((elm, idx) => <p>{elm.name}</p>)} </div>
+                <button>Agregar a favoritos</button>
+                </div>
+                
             </div>
         )
     }

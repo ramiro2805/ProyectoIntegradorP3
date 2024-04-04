@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import CardPelicula from '../Cardpelicula/CardPelicula';
 import { Link } from "react-router-dom/cjs/react-router-dom.min";
 
-class TopPeliculas extends Component {
+class VerTodasTop extends Component {
     constructor () {
         super ()
         this.state= {peliculas : []}
@@ -13,18 +13,16 @@ class TopPeliculas extends Component {
         .then(data => this.setState({peliculas : data.results}))
         .catch(e => console.log(e))
     }
-    render(){
-        let top5 = this.state.peliculas.slice(0,5)
-        return (
+    render() {
+        return(
             <div>
-                {
-                    top5.map(( elm, idx) => <CardPelicula  data= {elm}  key={idx + elm.title}/>)
+                 {
+                    this.state.peliculas.map(( elm, idx) => <CardPelicula  data= {elm}  key={idx + elm.title}/>)
                 
                 }
-                <h5> <Link to ={`/VerTodasTop`}>Ver Todas</Link></h5>
             </div>
         )
     }
 }
 
-export default TopPeliculas
+export default VerTodasTop

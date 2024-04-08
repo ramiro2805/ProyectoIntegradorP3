@@ -4,7 +4,7 @@ import CardPelicula from '../Cardpelicula/CardPelicula';
 class UpComingMovies extends Component {
     constructor () {
         super ()
-        this.state= {peliculas : []}
+        this.state= {peliculas : [],favoritos: localStorage.getItem('favoritos')}
     }
     componentDidMount () {
         fetch("https://api.themoviedb.org/3/movie/upcoming?api_key=7384aa0b23ce68ba408f9921ee711e62")
@@ -13,6 +13,10 @@ class UpComingMovies extends Component {
         .then(data => this.setState({peliculas : data.results}))
         .catch(e => console.log(e))
     }
+    actualizarFavoritos (arrayStorage) {
+        this.setState({favoritos: arrayStorage})
+
+    }
     render(){
         let top5 = this.state.peliculas.slice(0,5)
         return (
@@ -20,7 +24,7 @@ class UpComingMovies extends Component {
                 {console.log(this.state.peliculas)}
                 <h1>Proximos estrenos:</h1>
                 {
-                    top5.map(( elm, idx) => <CardPelicula  data= {elm}  key={idx + elm.title}/>)
+                    top5.map(( elm, idx) => <CardPelicula actualizarFavoritos={(arr) => this.actualizarFavoritos(arr)}  esFavorito={this.state.favoritos.includes(elm.id)} data= {elm}  key={idx + elm.title}/>)
                 
                 }
             </div>

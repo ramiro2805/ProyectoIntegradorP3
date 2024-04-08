@@ -6,14 +6,43 @@ class CardPelicula extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            VerMas : 0
+            VerMas : 0,
+            favoritos : []
         }
+        console.log(this.props);
     }
     VerDescripcion (){
         this.setState({VerMas:1})
     }
     OcultarDescripcion() {
         this.setState({VerMas:0})
+    }
+    agregarFavoritos (idPelicula){
+        let storage= localStorage.getItem('favoritos')
+
+        if( storage !== null){
+            let storageParseado = JSON.parse(storage)
+            storageParseado.push(idPelicula)
+            this.props.actualizarFavoritos(storageParseado)
+            let storageString = JSON.stringify(storageParseado)
+            localStorage.setItem('favoritos',storageString)
+
+        }
+
+        else {
+            let agregarArray =[idPelicula]
+            this.props.actualizarFavoritos(agregarArray)
+            let arrayStringificado = JSON.stringify(agregarArray)
+            localStorage.setItem('favoritos',arrayStringificado)
+        }
+    }
+    sacarFavoritos(idPelicula) {
+        let storage= localStorage.getItem('favoritos')
+        let storageParseado = JSON.parse(storage)
+        let storageFiltrado = storageParseado.filter((elm)=> elm !== idPelicula)
+        this.props.actualizarFavoritos(storageFiltrado)
+        let storageString = JSON.stringify(storageFiltrado)
+        localStorage.setItem('favoritos',storageString)
     }
         render() {
         return(
@@ -29,6 +58,8 @@ class CardPelicula extends Component {
                 <p>{this.props.data.overview}</p>:
                 <p></p>}
             <h5 className="boton"> <Link to ={`/detalle/pelicula/${this.props.data.id}`}>Ir a detalle</Link></h5>
+            {this.props.esFavorito == true ? <button onClick={()=> this.sacarFavoritos(this.props.data.id)}>Sacar de favoritos</button> : <button onClick={()=> this.agregarFavoritos(this.props.data.id)}>Agregar a favoritos</button> }
+
         </article>
 
         )

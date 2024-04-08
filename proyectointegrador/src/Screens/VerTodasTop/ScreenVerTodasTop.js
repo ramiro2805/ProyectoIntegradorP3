@@ -10,6 +10,7 @@ class ScreenVerTodasTop extends Component {
     render(){
         return(
             <div>
+                <h1>Top Peliculas</h1>
                 <VerTodasTop />
             </div>
         )

@@ -18,6 +18,29 @@ class detallePelicula extends Component {
          .then(data => this.setState({data: data}) )
         .catch(e => console.log(e))
     }
+    agregarFavoritos (idPelicula){
+        let storage= localStorage.getItem('favoritos')
+
+        if( storage !== null){
+            let storageParseado = JSON.parse(storage)
+            storageParseado.push(idPelicula)
+            let storageString = JSON.stringify(storageParseado)
+            localStorage.setItem('favoritos',storageString)
+
+        }
+        else {
+            let agregarArray =[idPelicula]
+            let arrayStringificado = JSON.stringify(agregarArray)
+            localStorage.setItem('favoritos',arrayStringificado)
+        }
+    }
+    sacarFavoritos(idPelicula) {
+        let storage= localStorage.getItem('favoritos')
+        let storageParseado = JSON.parse(storage)
+        let storageFiltrado = storageParseado.filter((elm)=> elm !== idPelicula)
+        let storageString = JSON.stringify(storageFiltrado)
+        localStorage.setItem('favoritos',storageString)
+    }
     render() {
         const { data } = this.state;
         if (!data) {
@@ -40,7 +63,8 @@ class detallePelicula extends Component {
                 <p>Duracion: {data.runtime}</p>
                 <p>Sinopsis: {data.overview}</p>
                 <div className="Generos">Genreos: {data.genres.map((elm, idx) => <p>{elm.name}</p>)} </div>
-                <button>Agregar a favoritos</button>
+                <button onClick={()=> this.agregarFavoritos(data.id)}>Agregar a favoritos</button>
+                <button onClick={()=> this.sacarFavoritos(data.id)}>Sacar de favoritos</button>
                 </div>
                 
             </div>

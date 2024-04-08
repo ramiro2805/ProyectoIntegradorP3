@@ -38,11 +38,13 @@ render() {
           onChange={(evento) => this.guardarInput(evento)}
           value={this.state.valorInput}
         />
+        {console.log(this.state.valorInput)}
       </form>
     );
   }
 
 
 }
+
 
 export default Buscador

@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import CardPelicula from '../Cardpelicula/CardPelicula';
+import { Link } from "react-router-dom/cjs/react-router-dom.min";
 
 class UpComingMovies extends Component {
     constructor () {
@@ -27,6 +28,7 @@ class UpComingMovies extends Component {
                     top5.map(( elm, idx) => <CardPelicula actualizarFavoritos={(arr) => this.actualizarFavoritos(arr)}  esFavorito={this.state.favoritos.includes(elm.id)} data= {elm}  key={idx + elm.title}/>)
                 
                 }
+                <h5> <Link to ={`/VerTodasUpcoming`}>Ver Todas</Link> </h5>
             </div>
         )
     }

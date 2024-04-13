@@ -37,6 +37,7 @@ render() {
           type="text"
           onChange={(evento) => this.guardarInput(evento)}
           value={this.state.valorInput}
+          placeholder="Buscar..."
         />
         {console.log(this.state.valorInput)}
       </form>

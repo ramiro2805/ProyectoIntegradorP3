@@ -23,10 +23,10 @@ class Header extends Component {
             <div>
                 <Buscador filtrarPeliculas = {(valorInput) => this.filtrarPeliculas(valorInput)}/>
                 <ul>
-                    <li><a href="/">Home</a></li>
-                    <li><a href="/favoritos">Favoritos</a></li>
-                    <li><a href="/VerTodasTop">Peliculas mas populares</a></li>
-                    <li><a href="/VerTodasUpcoming">Proximos estrenos</a></li>
+                    <li><a href="/" style={{textDecoration:"none", textTransform:"uppercase"}}>Home</a></li>
+                    <li><a href="/favoritos" style={{textDecoration:"none", textTransform:"uppercase"}}>Favoritos</a></li>
+                    <li><a href="/VerTodasTop" style={{textDecoration:"none", textTransform:"uppercase"}}>Peliculas mas populares</a></li>
+                    <li><a href="/VerTodasUpcoming" style={{textDecoration:"none", textTransform:"uppercase"}}>Proximos estrenos</a></li>
                 </ul>
             </div>
             )

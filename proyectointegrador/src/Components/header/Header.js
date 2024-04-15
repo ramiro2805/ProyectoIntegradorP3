@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Buscador from "../Filtro/Filtro";
-
+import {Link} from 'react-router-dom'
+import "./Header.css"
 
 
 class Header extends Component {
@@ -25,14 +26,14 @@ class Header extends Component {
    
       render( ) {
         return(  
-            <div>
+            <div className="header">
                 {console.log(this.state.peliculas)}
                 
                 <ul>
-                    <li><a href="/" style={{textDecoration:"none", textTransform:"uppercase"}}>Home</a></li>
-                    <li><a href="/favoritos" style={{textDecoration:"none", textTransform:"uppercase"}}>Favoritos</a></li>
-                    <li><a href="/VerTodasTop" style={{textDecoration:"none", textTransform:"uppercase"}}>Peliculas mas populares</a></li>
-                    <li><a href="/VerTodasUpcoming" style={{textDecoration:"none", textTransform:"uppercase"}}>Proximos estrenos</a></li>
+                    <li><Link to="/">Home</Link></li>
+                    <li><Link to="/favoritos">Favoritos</Link></li>
+                    <li><Link to="/VerTodasTop">Top Peliculas</Link></li>
+                    <li><Link to="/VerTodasUpcoming">Proximos Estrenos</Link></li>
                 </ul>
             </div>
             )

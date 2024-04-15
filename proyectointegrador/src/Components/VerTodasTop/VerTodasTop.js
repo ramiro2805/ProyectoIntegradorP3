@@ -22,7 +22,7 @@ class VerTodasTop extends Component {
         .then(data => this.setState({
             peliculas : this.state.peliculas.concat(data.results),
             page: this.state.page + 1,
-            backup : this.state.peliculas.concat(data.results)
+            backup : this.state.backup.concat(data.results)
         }))
         .catch(err => console.log(err))
     }
@@ -42,11 +42,14 @@ class VerTodasTop extends Component {
             <div className="PadreVerTodas">
                 {console.log(this.state.peliculas)}
                 <Filtro filtrarPeliculas = {(valorInput) => this.filtrarPeliculas(valorInput)}/>
-                 {
+                {this.state.peliculas == null ? <h1>Cargando..</h1> : <div>
+                {
                     this.state.peliculas.map(( elm, idx) => <CardPelicula actualizarFavoritos={(arr) => this.actualizarFavoritos(arr)}  esFavorito={this.state.favoritos.includes(elm.id)} data= {elm}  key={idx + elm.title}/>)
                     
                 }
                 <button onClick={()=>this.buscarMas()}> Ver Mas</button>
+                    </div>}
+                
             </div>
         )
     }

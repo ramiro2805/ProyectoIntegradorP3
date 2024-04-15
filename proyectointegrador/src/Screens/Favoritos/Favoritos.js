@@ -2,6 +2,7 @@ import React from 'react';
 
 import { Component} from 'react';
 import CardPelicula from '../../Components/Cardpelicula/CardPelicula';
+import "./Favoritos.css"
 
 class Favoritos extends Component {
     constructor (props){
@@ -18,10 +19,10 @@ class Favoritos extends Component {
                     fetch(`https://api.themoviedb.org/3/movie/${elm}?api_key=7384aa0b23ce68ba408f9921ee711e62`)
                     .then(res => res.json())
                 //  .then(data => console.log(data)) 
-                    .then(data => this.setState({peliculas: this.state.peliculas.concat(data)}) )
-                    .catch(e => console.log(e))
-                        ))
-            )
+            ))
+        )
+        .then(data => this.setState({peliculas: this.state.peliculas.concat(data)}) )
+        .catch(e => console.log(e))
        
         }
     }
@@ -32,11 +33,13 @@ class Favoritos extends Component {
     render(){
         return(
             <div>
+                <h1>Favoritos:</h1>
                 {console.log(this.state.peliculas)}
+                <div className="PadreFavoritos">
                 {this.state.peliculas.length > 0 ?
                 this.state.peliculas.map((elm,idx) =>  <CardPelicula actualizarFavoritos={(arr) => this.actualizarFavoritos(arr)}  esFavorito={true} data= {elm} key= {`${idx}-${elm.name}`}/>):
-                <h1>No tenes favoritos</h1>
-            }
+                <h1 className="no-favorites">No tenes favoritos</h1>
+            }</div>
             </div>
         )
     }

@@ -15,10 +15,12 @@ class Home extends Component {
 
     render () {
         return (
-            <div className="PadreSecciones">
-                <Buscador history={this.props.history}/>
+            <div className="PadreHome">
+                <Buscador className="BuscadorHome" history={this.props.history}/>
+                <div className="PadreSecciones">
                 <TopPeliculas/>
                 <UpComingMovies/>
+                </div>
             </div>
         )
     }

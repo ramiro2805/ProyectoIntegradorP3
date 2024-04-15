@@ -3,7 +3,13 @@ import React, {Component} from 'react';
 class detallePelicula extends Component {
     constructor(props) {
         super(props);
-        this.state = { data:null}
+        this.state = { 
+            data:null,
+            enFavoritos: localStorage.getItem('favoritos') ? 
+                JSON.parse(localStorage.getItem('favoritos')).includes(this.props.match.params.id) 
+                : false
+
+        }
     }
 
     // 'https://api.themoviedb.org/3/find/external_id?external_source=' 
@@ -32,6 +38,8 @@ class detallePelicula extends Component {
             let arrayStringificado = JSON.stringify(agregarArray)
             localStorage.setItem('favoritos',arrayStringificado)
         }
+        this.setState({enFavoritos: true})
+
     }
     sacarFavoritos(idPelicula) {
         let storage= localStorage.getItem('favoritos')
@@ -39,18 +47,16 @@ class detallePelicula extends Component {
         let storageFiltrado = storageParseado.filter((elm)=> elm !== idPelicula)
         let storageString = JSON.stringify(storageFiltrado)
         localStorage.setItem('favoritos',storageString)
+        this.setState({enFavoritos: false})
     }
     render() {
         const { data } = this.state;
         if (!data) {
             return <p>Cargando...</p>;
         }
-
         return (
             <div className="PadreDetallePelicula">
-                
-                {console.log(data)}
-                <div className="DetallePoster">
+                {data == null ? <h1>Cargando</h1> : <div> <div className="DetallePoster">
                 <img src={`https://image.tmdb.org/t/p/w500/${data.poster_path}/images`}/>
                 <p>{data.title}</p>
                 </div>
@@ -62,10 +68,17 @@ class detallePelicula extends Component {
                 <p>Duracion: {data.runtime}</p>
                 <p>Sinopsis: {data.overview}</p>
                 <div className="Generos">Genreos: {data.genres.map((elm, idx) => <p>{elm.name}</p>)} </div>
-                <button onClick={()=> this.agregarFavoritos(data.id)}>Agregar a favoritos</button>
-                <button onClick={()=> this.sacarFavoritos(data.id)}>Sacar de favoritos</button>
+
+                {this.state.enFavoritos ? 
+                    <button onClick={() => this.sacarFavoritos(data.id)}>Sacar de favoritos</button>
+                 : 
+                    <button onClick={() => this.agregarFavoritos(data.id)}>Agregar a favoritos</button>
+                }
                 </div>
-                
+                </div>
+                 }
+                {console.log(data)}
+               
             </div>
         )
     }

@@ -4,3 +4,10 @@
     flex-wrap: wrap;
     justify-content: space-around;
 }
+.PadreHome {
+    align-items: center;
+}
+
+.BuscadorHome {
+    align-items: center;
+}

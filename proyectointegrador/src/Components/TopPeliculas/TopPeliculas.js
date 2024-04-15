@@ -24,12 +24,15 @@ class TopPeliculas extends Component {
         let top5 = this.state.peliculas.slice(0,5)
         return (
             <div>
-                <h1>Top Rating Peliculas:</h1>
+                {this.state.peliculas == null ? <h1>Cargando</h1> : <div> <h1>Top Rating Peliculas:</h1>
                 {
                     top5.map(( elm, idx) => <CardPelicula actualizarFavoritos={(arr) => this.actualizarFavoritos(arr)}   esFavorito={this.state.favoritos.includes(elm.id)}  data= {elm}  key={idx + elm.title}/>)
                 
                 }
                 <h5> <Link to ={`/VerTodasTop`}>Ver Todas</Link></h5>
+                </div>
+                }
+                
             </div>
         )
     }

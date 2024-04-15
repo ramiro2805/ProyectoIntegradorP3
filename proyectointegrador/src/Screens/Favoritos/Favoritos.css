@@ -1,0 +1,19 @@
+.PadreFavoritos {
+    display: flex; 
+    flex-wrap: wrap; 
+    flex-direction: row;
+    justify-content: space-around;
+  }
+  
+
+  .no-favorites {
+    font-size: 18px; 
+    color: #888; 
+    text-align: center; 
+    margin-top: 20px; }
+
+h1 {
+    font-size: 18px; 
+    color: gold; 
+    text-align: center; 
+    margin-top: 20px; }

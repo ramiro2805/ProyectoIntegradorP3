@@ -1,0 +1,30 @@
+.search-input {
+    width: 300px; /* Ancho del campo de búsqueda */
+    padding: 10px; /* Relleno interno */
+    font-size: 16px; /* Tamaño del texto */
+    border: 2px solid #ccc; /* Borde */
+    border-radius: 20px; /* Borde redondeado */
+    outline: none; /* Quita el resaltado del borde al enfocar */
+    transition: border-color 0.3s; /* Transición suave para el borde */
+  }
+  
+  /* Estilos para el icono de búsqueda */
+  .search-icon {
+    position: absolute; /* Para posicionar el icono dentro del campo de búsqueda */
+    top: 50%; /* Centra verticalmente */
+    right: 10px; /* Margen derecho */
+    transform: translateY(-50%); /* Ajusta verticalmente */
+    color: #888; /* Color del icono */
+    cursor: pointer; /* Cambia el cursor al pasar sobre el icono */
+    transition: color 0.3s; /* Transición suave para el color del icono */
+  }
+  
+  /* Estilos para el icono de búsqueda cuando está enfocado */
+  .search-input:focus + .search-icon {
+    color: #333; /* Cambia el color del icono cuando el campo de búsqueda está enfocado */
+  }
+  
+  /* Estilos para el icono de búsqueda al pasar sobre él */
+  .search-icon:hover {
+    color: #555; /* Cambia el color del icono al pasar sobre él */
+  }

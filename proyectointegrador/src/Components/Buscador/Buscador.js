@@ -1,5 +1,6 @@
 import React, {Component} from "react"
 import {Link} from 'react-router-dom'
+import "./Buscador.css"
 
 class Buscador extends Component {
     constructor(props) {
@@ -25,17 +26,20 @@ detenerDefault(evento) {
 
 render() {
     return (
+      <div className="search-container">
       <form onSubmit={(evento) => this.detenerDefault(evento)}>
         <input
+        className="search-input"
           type="text"
           onChange={(evento) => this.guardarInput(evento)}
           value={this.state.valorInput}
           placeholder="Buscar..."
         />
-          <button
-          >Buscar</button>
+        <i class="fas fa-search search-icon"></i>
+      
         {console.log(this.state.valorInput)}
       </form>
+      </div>
     );
   }
 

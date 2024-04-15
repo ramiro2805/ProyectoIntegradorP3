@@ -2,11 +2,12 @@ import React, {Component} from 'react';
 import CardPelicula from '../Cardpelicula/CardPelicula';
 import { Link } from "react-router-dom/cjs/react-router-dom.min";
 import "./VerTodasUpcoming.css"
+import Filtro from '../Filtro/Filtro';
 
 class VerTodasUpcoming extends Component {
     constructor () {
         super ()
-        this.state= {peliculas : [], page: 1, favoritos: localStorage.getItem('favoritos')}
+        this.state= {peliculas : [], page: 1,  favoritos: localStorage.getItem('favoritos') !== null? localStorage.getItem('favoritos') : []}
     }
     componentDidMount () {
         fetch("https://api.themoviedb.org/3/movie/upcoming?api_key=7384aa0b23ce68ba408f9921ee711e62&page=1")
@@ -28,10 +29,18 @@ class VerTodasUpcoming extends Component {
         this.setState({favoritos: arrayStorage})
 
     }
+    filtrarPeliculas(valorInput){
+        let peliculasFiltradas = this.state.peliculas.filter(
+            (elm)=>elm.title.toLowerCase().includes(valorInput.toLowerCase()))
+            this.setState({
+                peliculas: peliculasFiltradas
+            })
+      } 
     render() {
         return(
             <div className="PadreVerTodas">
                 {console.log(this.state.peliculas)}
+                <Filtro filtrarPeliculas = {(valorInput) => this.filtrarPeliculas(valorInput)}/>
                  {
                     this.state.peliculas.map(( elm, idx) => <CardPelicula actualizarFavoritos={(arr) => this.actualizarFavoritos(arr)}  esFavorito={this.state.favoritos.includes(elm.id)} data= {elm}  key={idx + elm.title}/>)
                     

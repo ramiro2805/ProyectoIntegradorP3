@@ -5,7 +5,10 @@ import { Link } from "react-router-dom/cjs/react-router-dom.min";
 class UpComingMovies extends Component {
     constructor () {
         super ()
-        this.state= {peliculas : [],favoritos: localStorage.getItem('favoritos')}
+        this.state = {
+            peliculas: [],
+            favoritos: localStorage.getItem('favoritos') !== null? localStorage.getItem('favoritos') : []
+        }
     }
     componentDidMount () {
         fetch("https://api.themoviedb.org/3/movie/upcoming?api_key=7384aa0b23ce68ba408f9921ee711e62")

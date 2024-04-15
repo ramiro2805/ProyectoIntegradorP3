@@ -2,17 +2,18 @@ import React, {Component} from 'react';
 import CardPelicula from '../Cardpelicula/CardPelicula';
 import { Link } from "react-router-dom/cjs/react-router-dom.min";
 import "./VerTodasTop.css"
+import Filtro from '../Filtro/Filtro';
 
 class VerTodasTop extends Component {
     constructor () {
         super ()
-        this.state= {peliculas : [], page: 1, favoritos: localStorage.getItem('favoritos')}
+        this.state= {backup :[],peliculas : [], page: 1,  favoritos: localStorage.getItem('favoritos') !== null? localStorage.getItem('favoritos') : []}
     }
     componentDidMount () {
         fetch("https://api.themoviedb.org/3/movie/top_rated?api_key=7384aa0b23ce68ba408f9921ee711e62&page=1")
         .then(res => res.json())
         //.then(data => console.log(data))
-        .then(data => this.setState({peliculas : data.results}))
+        .then(data => this.setState({peliculas : data.results, backup: data.results}))
         .catch(e => console.log(e))
     }
     buscarMas(){
@@ -20,7 +21,8 @@ class VerTodasTop extends Component {
         .then(res => res.json())
         .then(data => this.setState({
             peliculas : this.state.peliculas.concat(data.results),
-            page: this.state.page + 1
+            page: this.state.page + 1,
+            backup : this.state.peliculas.concat(data.results)
         }))
         .catch(err => console.log(err))
     }
@@ -28,10 +30,18 @@ class VerTodasTop extends Component {
         this.setState({favoritos: arrayStorage})
 
     }
+    filtrarPeliculas(valorInput){
+        let peliculasFiltradas = this.state.backup.filter(
+            (elm)=>elm.title.toLowerCase().includes(valorInput.toLowerCase()))
+            this.setState({
+                peliculas: peliculasFiltradas
+            })
+      } 
     render() {
         return(
             <div className="PadreVerTodas">
                 {console.log(this.state.peliculas)}
+                <Filtro filtrarPeliculas = {(valorInput) => this.filtrarPeliculas(valorInput)}/>
                  {
                     this.state.peliculas.map(( elm, idx) => <CardPelicula actualizarFavoritos={(arr) => this.actualizarFavoritos(arr)}  esFavorito={this.state.favoritos.includes(elm.id)} data= {elm}  key={idx + elm.title}/>)
                     

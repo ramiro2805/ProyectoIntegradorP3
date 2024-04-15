@@ -1,27 +1,36 @@
 import React, {Component} from "react"
 import {Link} from 'react-router-dom'
 
-class Buscador extends Component {
+class Filtro extends Component {
     constructor(props) {
         super(props);
         this.state = {
           valorInput: "",
           peliculas: [],
+          backup : []
         };
       }
 
 detenerDefault(evento) {
     evento.preventDefault();
-    this.props.history.push('/busqueda/'+this.state.valorInput)
   }
 
   guardarInput(evento) {
     this.setState(
       {
         valorInput: evento.target.value,
-      }
+      },
+      () => this.props.filtrarPeliculas(this.state.valorInput)
     );
   }
+
+  filtrarPeliculas(valorInput){
+    let peliculasFiltradas = this.state.peliculas.filter(
+        (elm)=>elm.name.toLowerCase().includes(valorInput.toLowerCase()))
+        this.setState({
+            peliculas: peliculasFiltradas
+        })
+  } 
 
 render() {
     return (
@@ -32,8 +41,7 @@ render() {
           value={this.state.valorInput}
           placeholder="Buscar..."
         />
-          <button
-          >Buscar</button>
+        
         {console.log(this.state.valorInput)}
       </form>
     );
@@ -43,4 +51,4 @@ render() {
 }
 
 
-export default Buscador
+export default Filtro

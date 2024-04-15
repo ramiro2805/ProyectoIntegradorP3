@@ -3,8 +3,7 @@ import React, {Component} from 'react';
 class detallePelicula extends Component {
     constructor(props) {
         super(props);
-        this.state = { data:null
-    }
+        this.state = { data:null}
     }
 
     // 'https://api.themoviedb.org/3/find/external_id?external_source=' 

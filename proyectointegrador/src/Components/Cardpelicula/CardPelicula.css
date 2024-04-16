@@ -1,23 +1,42 @@
+
 .card-pelicula {
-    max-height: 1000px;
-    flex: 0 1 calc(45% - 0px); /* Todas las tarjetas de peliculas ocuparán el mismo espacio disponible */
-    margin: 10px; /* Espacio entre las tarjetas */
-    padding: 10px; /* Espacio interno de las tarjetas */
-    border: 1px solid #ccc; /* Borde para visualización */
+    max-width: 300px;
+    margin: 20px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    background-color: #f9f9f9;
     text-align: center;
-    max-width: 500px;
-    justify-content: space-around;
-    color: aliceblue;
-    background-color: black;
 }
+
 .cardimg {
-    width: 100%; /* Ajusta el tamaño de la imagen al ancho de la tarjeta */
-    height: auto; /* Permite que la altura de la imagen se ajuste automáticamente */
-    max-height:500px;
-    max-width: fit-content;
+    width: 100%;
+    max-height: 300px;
+    object-fit: cover; 
+    border-radius: 10px;
 }
-.boton {
-    text-emphasis: none;
-    text-decoration: none;
-    
+
+.card-pelicula h2 {
+    margin-top: 10px;
+    font-size: 1.5rem;
+    color: #333;
 }
+
+.card-pelicula p {
+    margin: 10px 0;
+    font-size: 1rem;
+    color: #555;
+}
+
+.card-pelicula button {
+    margin-top: 10px;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 5px;
+    background-color: gold;
+    color: #fff;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+

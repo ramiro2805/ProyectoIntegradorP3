@@ -28,10 +28,12 @@ class UpComingMovies extends Component {
             <div >
                 {this.state.peliculas == null ? <h1>Cargando..</h1> : <div className="UpComingMovies"> 
                 <h1>Proximos estrenos:</h1>
+                <div className='PadreCards'>
                 {
                     top5.map(( elm, idx) => <CardPelicula actualizarFavoritos={(arr) => this.actualizarFavoritos(arr)}  esFavorito={this.state.favoritos.includes(elm.id)} data= {elm}  key={idx + elm.title}/>)
                 
                 }
+                </div>
                 <h5> <Link to ={`/VerTodasUpcoming`}>Ver Todas</Link> </h5>
                     </div>}
                 {console.log(this.state.peliculas)}

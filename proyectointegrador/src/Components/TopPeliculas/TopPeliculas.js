@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import CardPelicula from '../Cardpelicula/CardPelicula';
 import { Link } from "react-router-dom/cjs/react-router-dom.min";
+import './TopPeliculas.css'
 
 class TopPeliculas extends Component {
     constructor () {
@@ -25,10 +26,12 @@ class TopPeliculas extends Component {
         return (
             <div>
                 {this.state.peliculas == null ? <h1>Cargando</h1> : <div> <h1>Top Rating Peliculas:</h1>
+                <div className="PadreCards">
                 {
                     top5.map(( elm, idx) => <CardPelicula actualizarFavoritos={(arr) => this.actualizarFavoritos(arr)}   esFavorito={this.state.favoritos.includes(elm.id)}  data= {elm}  key={idx + elm.title}/>)
                 
                 }
+                 </div>
                 <h5> <Link to ={`/VerTodasTop`}>Ver Todas</Link></h5>
                 </div>
                 }

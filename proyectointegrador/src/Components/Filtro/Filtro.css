@@ -1,0 +1,9 @@
+.search-input {/* Ancho del campo de búsqueda */
+    padding: 10px; 
+    font-size: 16px; 
+    border: 2px solid #ccc; 
+    border-radius: 20px; 
+    outline: none; 
+    transition: border-color 0.3s; 
+  }
+  

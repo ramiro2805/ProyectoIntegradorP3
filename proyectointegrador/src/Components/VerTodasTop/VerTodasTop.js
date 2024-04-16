@@ -39,16 +39,20 @@ class VerTodasTop extends Component {
       } 
     render() {
         return(
-            <div className="PadreVerTodas">
+            <div className="Buscar">
                 {console.log(this.state.peliculas)}
+                <div>
                 <Filtro filtrarPeliculas = {(valorInput) => this.filtrarPeliculas(valorInput)}/>
-                {this.state.peliculas == null ? <h1>Cargando..</h1> : <div>
+                </div>
+                
+                {this.state.peliculas == null ? <h1>Cargando..</h1> : <div className='PadreVerTodas'>
                 {
                     this.state.peliculas.map(( elm, idx) => <CardPelicula actualizarFavoritos={(arr) => this.actualizarFavoritos(arr)}  esFavorito={this.state.favoritos.includes(elm.id)} data= {elm}  key={idx + elm.title}/>)
                     
                 }
-                <button onClick={()=>this.buscarMas()}> Ver Mas</button>
+                
                     </div>}
+                    <button className="button-ver-mas" onClick={()=>this.buscarMas()}> Ver Mas</button>
                 
             </div>
         )

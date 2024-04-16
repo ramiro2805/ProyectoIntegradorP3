@@ -57,7 +57,7 @@ class CardPelicula extends Component {
             {this.state.VerMas === 1?
                 <p>{this.props.data.overview}</p>:
                 <p></p>}
-            <h5 className="boton"> <Link to ={`/detalle/pelicula/${this.props.data.id}`}>Ir a detalle</Link></h5>
+            <h5 className="detalle-link"> <Link to ={`/detalle/pelicula/${this.props.data.id}`}>Ir a detalle</Link></h5>
             {this.props.esFavorito == true ? <button onClick={()=> this.sacarFavoritos(this.props.data.id)}>Sacar de favoritos</button> : <button onClick={()=> this.agregarFavoritos(this.props.data.id)}>Agregar a favoritos</button> }
 
         </article>

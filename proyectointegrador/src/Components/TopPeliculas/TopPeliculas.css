@@ -1,0 +1,15 @@
+.PadreCards {
+    display:flex;
+    flex-direction: row;
+}
+h5 a {
+    display: inline-block;
+    padding: 8px 16px;
+    background-color: #007bff;
+    color: #fff;
+    text-decoration: none;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}

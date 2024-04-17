@@ -19,12 +19,10 @@
     transition: color 0.3s; 
   }
   
-  /* Estilos para el icono de búsqueda cuando está enfocado */
   .search-input:focus + .search-icon {
-    color: #333; /* Cambia el color del icono cuando el campo de búsqueda está enfocado */
+    color: #333;
   }
   
-  /* Estilos para el icono de búsqueda al pasar sobre él */
   .search-icon:hover {
-    color: #555; /* Cambia el color del icono al pasar sobre él */
+    color: #555;
   }

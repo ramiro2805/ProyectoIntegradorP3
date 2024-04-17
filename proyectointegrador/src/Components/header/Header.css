@@ -1,27 +1,27 @@
 .header {
-    background-color: black; /* Color de fondo del encabezado */
-    padding: 10px; /* Relleno interno */
+    background-color: black;
+    padding: 10px;
   }
   
   .header ul {
-    list-style-type: none; /* Quita los puntos de la lista */
-    margin: 0; /* Elimina los márgenes */
-    padding: 0; /* Elimina el relleno */
-    display: flex; /* Utiliza flexbox para alinear los elementos */
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
     justify-content: space-between;
   }
   
   .header li {
-    display: inline; /* Para que los elementos de la lista estén en línea */
-    margin-right: 20px; /* Margen entre elementos de la lista */
+    display: inline;
+    margin-right: 20px;
   }
   
   .header li:last-child {
-    margin-right: 0; /* Elimina el margen derecho del último elemento de la lista */
+    margin-right: 0;
   }
   
   .header li a {
-    color: gold; /* Color del texto de los enlaces */
+    color: gold;
     text-decoration: none; 
     font-size: 18px; 
   }

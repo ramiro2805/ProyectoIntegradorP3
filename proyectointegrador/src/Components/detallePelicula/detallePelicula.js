@@ -68,7 +68,7 @@ class detallePelicula extends Component {
                 <p>Estreno: {data.release_date}</p>
                 <p>Duracion: {data.runtime}</p>
                 <p>Sinopsis: {data.overview}</p>
-                <div className="Generos">Genreos: {data.genres.map((elm, idx) => <p>{elm.name}</p>)} </div>
+                <div className="Generos">Generos: {data.genres.map((elm, idx) => <p>{elm.name}</p>)} </div>
 
                 {this.state.enFavoritos ? 
                     <button onClick={() => this.sacarFavoritos(data.id)}>Sacar de favoritos</button>

@@ -13,7 +13,6 @@ class UpComingMovies extends Component {
     componentDidMount () {
         fetch("https://api.themoviedb.org/3/movie/upcoming?api_key=7384aa0b23ce68ba408f9921ee711e62")
         .then(res => res.json())
-        // .then(data => console.log(data))
         .then(data => this.setState({peliculas : data.results}))
         .catch(e => console.log(e))
     }
@@ -22,7 +21,10 @@ class UpComingMovies extends Component {
 
     }
     render(){
-        let top5 = this.state.peliculas.slice(0,5)
+        if (this.state.peliculas.length == 0) {
+            return <p>Cargando...</p>;
+        };
+        let top5 = this.state.peliculas.slice(0,5);
         return (
             
             <div >

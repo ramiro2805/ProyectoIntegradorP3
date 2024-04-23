@@ -22,6 +22,9 @@ class TopPeliculas extends Component {
 
     }
     render(){
+        if (this.state.peliculas.length == 0) {
+            return <p>Cargando...</p>;
+        };
         let top5 = this.state.peliculas.slice(0,5)
         return (
             <div>

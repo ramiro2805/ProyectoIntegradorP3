@@ -25,6 +25,7 @@ detenerDefault(evento) {
   }
 
 render() {
+  
     return (
       <div className="search-container">
       <form onSubmit={(evento) => this.detenerDefault(evento)}>

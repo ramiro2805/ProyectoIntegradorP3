@@ -38,6 +38,9 @@ class VerTodasTop extends Component {
             })
       } 
     render() {
+        if (this.state.peliculas.length == 0) {
+            return <p>Cargando...</p>;
+        };
         return(
             <div className="Buscar">
                 {console.log(this.state.peliculas)}
